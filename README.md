@@ -1,0 +1,2 @@
+# ContactManager_App_Express
+ A Node.js and Express-based REST API for managing contacts with user authentication, JWT-based authorization, and MongoDB as the database. Includes features like user registration, login, and CRUD operations for contacts.  Features: ✅ User authentication with JWT ✅ Secure password hashing with bcrypt ✅ Middleware for token validation ✅ CRUD operations for contacts ✅ MongoDB with Mongoose
