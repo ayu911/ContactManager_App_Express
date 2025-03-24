@@ -1,24 +1,25 @@
 const express = require('express');
-const errorHandler = require('./middleware/errorHandler');
-const connectDB = require('./config/dbConnection'); 
 const dotenv = require('dotenv').config();
-
-const app = express();
+const connectDB = require('./config/dbConnection');
+const errorHandler = require('./middleware/errorHandler');
 
 // Connect to MongoDB
 connectDB();
 
+const app = express();
 const port = process.env.PORT || 5001;
 
-// Middleware for parsing JSON data
+// Middleware for parsing JSON
 app.use(express.json());
 
-// API Routes
+// Routes
 app.use('/api/contacts', require('./routes/contactRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
 
-// Error handling middleware (should be after routes)
+// Error handling middleware
 app.use(errorHandler);
 
+// Start server
 app.listen(port, () => {
-    console.log(`Server running on PORT ${port}`);
+    console.log(`🚀 Server running on PORT ${port}`);
 });
